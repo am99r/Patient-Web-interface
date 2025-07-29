@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-web
+  template:
+    metadata:
+      labels:
+        app: patient-web
+    spec:
+      containers:
+      - name: patient-web
+        image: am10r/patient-web-interface:latest
+        ports:
+        - containerPort: 3000
+
